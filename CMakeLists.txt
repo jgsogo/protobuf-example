@@ -8,3 +8,6 @@ find_package(protobuf 3.6.1 REQUIRED)
 add_subdirectory(messages)
 add_subdirectory(library)
 add_subdirectory(executable)
+
+enable_testing()
+add_subdirectory(tests)
