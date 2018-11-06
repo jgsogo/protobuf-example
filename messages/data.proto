@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "header.proto";
+
+package conan;
+
+message Data {
+    Header header = 1;
+    string content = 2;
+}

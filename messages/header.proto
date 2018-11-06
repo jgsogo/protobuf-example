@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package conan;
+
+message Header {
+    string sender = 1;
+    string recipient = 2;
+    int32 timestamp = 3;
+}
