@@ -11,5 +11,5 @@ target_include_directories(messages
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>
         ${Protobuf_INCLUDE_DIRS})
-message(">>>>> CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
+
 target_link_libraries(messages PUBLIC protobuf::libprotobuf)
