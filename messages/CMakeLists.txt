@@ -6,7 +6,10 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 
 source_group("Include Files" FILES ${PROTO_HDRS})
 add_library(messages ${PROTO_SRCS} ${PROTO_HDRS} ${PROTO_FILES})
-#target_compile_definitions(messages PUBLIC PROTOBUF_USE_DLLS)
-#generate_export_header(messages EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/include/messagesAPI.h)
-target_include_directories(messages PUBLIC ${Protobuf_INCLUDE_DIRS})
-target_link_libraries(messages PUBLIC ${Protobuf_LIBRARIES})
+target_include_directories(messages
+    PUBLIC
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>
+        ${Protobuf_INCLUDE_DIRS})
+message(">>>>> CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
+target_link_libraries(messages PUBLIC protobuf::libprotobuf)
